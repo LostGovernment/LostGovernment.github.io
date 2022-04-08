@@ -15,7 +15,8 @@ and bring people together.” - Barack Obama
 ---
 ##### University of Washington, Seattle, WA
 [UW Seattle](https://www.washington.edu/)
-![U of W Cherry Blossom!](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7SJd8YdARwkytFpsU3MQSQdkKtTis1UPprVD43dEio9K0SUGVoPtru58yVYofIoXevyI&usqp=CAU)
+![U of W GEOG](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7SJd8YdARwkytFpsU3MQSQdkKtTis1UPprVD43dEio9K0SUGVoPtru58yVYofIoXevyI&usqp=CAU)
+
 Bachelor's of Arts in Geography Data Science                       
 9/2020 - 6/2022
 Dean's List: Winter 2021, Autumn 2022
@@ -53,8 +54,9 @@ Administrative Assistant
 
 ##### C21 Amazon Externships Program
 ![amazon](https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/012015/amazon-logo-rgb.png?itok=FZJ5-sKg)
-Mentee
 
+Mentee
+Career development program | Small group mentoring | Working with a mentor on advancing future employment.
 ## Class Projects
 -----
 ###### Spatial Analysis with QGIS
