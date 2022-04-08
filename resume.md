@@ -1,9 +1,12 @@
 # Ali Basbeth(Ali)
 basbeth@uw.edu | www.linkedin.com/in/ali-basbeth 
-
+```
+Today is a Sunny Day
+```
 ## Education
 ---
 ##### University of Washington, Seattle, WA
+[UW Seattle](https://www.washington.edu/)
 Bachelor's of Arts in Geography Data Science                       
 9/2020 - 6/2022
 Dean's List: Winter 2021, Autumn 2022
@@ -17,6 +20,7 @@ Relevant Coursework:
 - Airborne LiDAR For Remote Sensing of Vegetation and Geomorphology
 
 ##### Shoreline Community College, Shoreline, WA
+[Shoreline Community College](https://www.shoreline.edu)
 Associate's of Arts
 9/2017 - 6/2020
 
