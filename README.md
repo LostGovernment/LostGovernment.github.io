@@ -1,2 +1,2 @@
 # Ali Basbeth 
-## Geography Data Science - University of Washington
+#### Bachelors of Arts in Geography Data Science - University of Washington
