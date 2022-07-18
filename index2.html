@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ali's Portofolio</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://www.w3schools.com/lib/w3-theme-black.css"
+    />
+    <style>
+      body {
+        font-family: Arial;
+      }
+      /* Style the tab */
+      .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+      }
+      /* Style the buttons that are used to open the tab content */
+      .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+      }
+      /* Change background color of buttons on hover */
+      .tab button:hover {
+        background-color: #ddd;
+      }
+
+      /* Create an active/current tablink class */
+      .tab button.active {
+        background-color: #ccc;
+      }
+
+      /* Style the tab content */
+      .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+      }
+
+      .tabcontent {
+        animation: fadeEffect 1s;
+      }
+
+      @keyframes fadeEffect {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .malaria {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tab">
+      <button
+        class="tablinks"
+        onclick="openTab(event, 'about')"
+        id="defaultOpen"
+      >
+        about
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'projects')">
+        project
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'contact')">
+        contact
+      </button>
+    </div>
+    <!-- Tab content-->
+    <div id="about" class="tabcontent">
+      <h3>Ali Basbeth</h3>
+    </div>
+    <div id="projects" class="tabcontent">
+      <h3>QGIS Malaria</h3>
+      <div class="malaria">
+        <img src="images/Malaria Map 3.png" width="25%" length="25%" />
+      </div>
+      <h3>COVID-19 Web Mapping Application</h3>
+      <img src="images/counts.png" width="25%" length="25%" />
+      <img src="images/rates.png" width="25%" length="25%" />
+    </div>
+    <div id="contact" class="tabcontent">
+      <h3>
+        Email: <a href="mailto:basbethali@gmail.com"> Send email</a>
+        <br />
+        Number: +1 206-270-2314
+        <br />
+        Github:
+        <a href="https://github.com/LostGovernment">
+          <img src="images/GitHub-Mark-32px.png" />
+        </a>
+        <br />
+        Linkedin:
+      </h3>
+    </div>
+
+    <script>
+      document.getElementById("defaultOpen").click();
+      function openTab(evt, element) {
+        // declare all variables
+        var i, tabcontent, tablinks;
+        // get all elements with class = "tabcontent" and hide them
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+
+        // get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the current tab, and add an "active" class to  the button that opened the tab
+        document.getElementById(element).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+    </script>
+  </body>
+</html>
