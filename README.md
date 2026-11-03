@@ -12,6 +12,13 @@ I earned my B.A. in Geography (Data Science track) from the University of Washin
 
 ## Featured projects
 
+### Bellevue Incident Map
+
+An interactive map of about 373,000 Bellevue Police calls for service from 2021 to 2026, shown as hexagons or by block, with date and category filters, trend charts, and a custom basemap.
+
+**Built with:** MapLibre GL JS, JavaScript, GeoJSON, City of Bellevue Open Data, OpenStreetMap
+[Live map](https://lostgovernment.github.io/bellevue-incident-map/) · [Source](https://github.com/LostGovernment/bellevue-incident-map)
+
 ### COVID-19 US Web Maps
 
 Two interactive maps of 2020 COVID-19 cases by US county: a proportional-symbol map of case counts and a choropleth of rates per 100,000 residents.
