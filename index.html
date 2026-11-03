@@ -2,32 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Ali Basbeth — Geospatial &amp; LiDAR QA/QC Specialist</title>
+    <title>Ali Basbeth — Geospatial Data Analyst</title>
     <meta
       name="description"
-      content="Portfolio of Ali Basbeth — Geospatial &amp; LiDAR QA/QC Specialist and Spatial Data Analyst. Web mapping, GIS database, and LiDAR projects with source code."
+      content="Ali Basbeth: geospatial analyst with three years of LiDAR and GIS experience, now pursuing an M.S. in Information Systems at the University of Washington."
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#faf8ef" />
     <link rel="icon" href="data:," />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap"
-      rel="stylesheet"
-    />
     <style>
       :root {
-        --bg: #f6f7f9;
-        --surface: #ffffff;
-        --border: #e3e6ea;
-        --text: #1a1f2b;
-        --muted: #5b6472;
-        --accent: #2563eb;
-        --accent-dark: #1d4ed8;
-        --accent-soft: #eaf0ff;
-        --radius: 12px;
-        --shadow:
-          0 1px 2px rgba(16, 24, 40, 0.06), 0 1px 3px rgba(16, 24, 40, 0.08);
+        --bg: #faf8ef;
+        --text: #22251b;
+        --muted: #5f6152;
+        --border: #e0dccd;
+        --accent: #283618;
+        --accent-text: #4f5a2a;
+        --accent-soft: #e9ebc9;
+        --radius: 4px;
       }
 
       * {
@@ -40,14 +32,33 @@
 
       body {
         margin: 0;
-        font-family: "Manrope", sans-serif;
+        font-family: "Times New Roman", Times, serif;
         color: var(--text);
         background: var(--bg);
         line-height: 1.6;
       }
 
       a {
-        color: var(--accent-dark);
+        color: var(--accent-text);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.2em;
+        text-decoration-color: rgba(79, 90, 42, 0.35);
+        transition:
+          color 0.15s,
+          text-decoration-color 0.15s;
+      }
+      a:hover {
+        color: var(--accent);
+        text-decoration-color: currentColor;
+      }
+
+      ::selection {
+        background: var(--accent-soft);
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--accent-text);
+        outline-offset: 3px;
       }
 
       img {
@@ -56,9 +67,10 @@
       }
 
       .wrap {
-        max-width: 980px;
+        max-width: 760px;
         margin: 0 auto;
-        padding: 0 1.25rem;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
       }
 
       /* ---------- Top nav ---------- */
@@ -66,13 +78,13 @@
         position: sticky;
         top: 0;
         z-index: 10;
-        background: rgba(255, 255, 255, 0.9);
+        background: rgba(250, 248, 239, 0.92);
         backdrop-filter: saturate(180%) blur(8px);
         border-bottom: 1px solid var(--border);
       }
 
       .nav-inner {
-        max-width: 980px;
+        max-width: 760px;
         margin: 0 auto;
         padding: 0.85rem 1.25rem;
         display: flex;
@@ -91,41 +103,42 @@
 
       nav.tabs {
         display: flex;
-        gap: 0.25rem;
+        gap: 1.5rem;
         flex-wrap: wrap;
       }
 
       nav.tabs button {
         background: none;
         border: none;
+        border-bottom: 1px solid transparent;
         font: inherit;
         font-size: 0.95rem;
         color: var(--muted);
-        padding: 0.5rem 0.85rem;
-        border-radius: 999px;
+        padding: 0.2rem 0;
         cursor: pointer;
         transition:
-          background 0.15s,
-          color 0.15s;
+          color 0.15s,
+          border-color 0.15s;
       }
 
       nav.tabs button:hover {
-        background: var(--accent-soft);
-        color: var(--accent-dark);
+        color: var(--text);
       }
       nav.tabs button.active {
-        background: var(--accent);
-        color: #fff;
+        color: var(--text);
+        border-bottom-color: var(--accent);
       }
 
       /* ---------- Sections / tabs ---------- */
       main {
-        padding: 2.5rem 0 4rem;
+        padding: 3rem 0;
       }
 
       .tabpanel {
         display: none;
         animation: fade 0.35s ease;
+        /* opening a link like /#projects lands at the top, not under the sticky header */
+        scroll-margin-top: 20rem;
       }
       .tabpanel.active {
         display: block;
@@ -150,81 +163,82 @@
       }
 
       h1 {
-        font-family: "Space Grotesk", sans-serif;
+        font-family: "Times New Roman", Times, serif;
         font-size: 2rem;
         margin: 0 0 0.35rem;
       }
       h2 {
-        font-family: "Space Grotesk", sans-serif;
+        font-family: "Times New Roman", Times, serif;
         font-size: 1.4rem;
         margin: 0 0 1rem;
       }
       h3 {
-        font-family: "Space Grotesk", sans-serif;
+        font-family: "Times New Roman", Times, serif;
         font-size: 1.1rem;
         margin: 0 0 0.35rem;
       }
       p {
         margin: 0 0 1rem;
         color: var(--text);
+        text-wrap: pretty;
       }
       .muted {
         color: var(--muted);
+      }
+
+      .tabpanel > h2:not(:first-child) {
+        margin-top: 2.5rem;
+      }
+
+      /* keep running text at a comfortable line length */
+      #about > p,
+      .tabpanel > p.muted {
+        max-width: 70ch;
+      }
+
+      .tabpanel > p.muted {
+        margin-bottom: 1.75rem;
       }
 
       /* ---------- Hero ---------- */
       .hero {
         display: flex;
         align-items: center;
-        gap: 1.75rem;
+        justify-content: space-between;
+        gap: 2.5rem;
         flex-wrap: wrap;
-        margin-bottom: 2.5rem;
+        padding-bottom: 2.5rem;
+        border-bottom: 1px solid var(--border);
       }
 
       .hero img.headshot {
-        width: 128px;
-        height: 128px;
-        border-radius: 50%;
+        width: 148px;
+        height: 214px;
+        border-radius: var(--radius);
         object-fit: cover;
-        border: 3px solid var(--surface);
-        box-shadow: var(--shadow);
+        object-position: center 18%;
+        order: 2;
+        margin-left: auto;
       }
 
       .hero-text {
         flex: 1;
         min-width: 240px;
+        order: 1;
       }
 
       .tagline {
-        color: var(--accent-dark);
+        color: var(--accent-text);
         font-weight: 600;
         margin: 0 0 0.6rem;
         font-size: 1.05rem;
-      }
-
-      .hero-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.9rem;
-        font-size: 0.92rem;
-        color: var(--muted);
-        margin-top: 0.75rem;
-      }
-
-      .hero-meta a {
-        color: var(--muted);
-        text-decoration: none;
-      }
-      .hero-meta a:hover {
-        color: var(--accent-dark);
-        text-decoration: underline;
       }
 
       .cta-row {
         display: flex;
         gap: 0.75rem;
         flex-wrap: wrap;
-        margin-top: 1.1rem;
+        margin-top: 1.25rem;
       }
 
       .btn {
@@ -232,101 +246,78 @@
         align-items: center;
         gap: 0.4rem;
         padding: 0.55rem 1rem;
-        border-radius: 8px;
+        border-radius: var(--radius);
+        font-family: inherit;
         font-size: 0.92rem;
         font-weight: 600;
         text-decoration: none;
         border: 1px solid transparent;
         cursor: pointer;
         transition:
-          transform 0.1s,
-          box-shadow 0.15s;
-      }
-
-      .btn:hover {
-        transform: translateY(-1px);
+          background-color 0.15s,
+          border-color 0.15s,
+          color 0.15s;
       }
 
       .btn-primary {
         background: var(--accent);
-        color: #fff;
+        border-color: var(--accent);
+        color: var(--bg);
       }
       .btn-primary:hover {
-        background: var(--accent-dark);
+        background: #36461f;
+        border-color: #36461f;
+        color: var(--bg);
       }
 
       .btn-ghost {
-        background: var(--surface);
-        color: var(--text);
-        border-color: var(--border);
+        background: transparent;
+        color: var(--accent);
+        border-color: rgba(40, 54, 24, 0.4);
       }
       .btn-ghost:hover {
+        background: var(--accent-soft);
         border-color: var(--accent);
-        color: var(--accent-dark);
       }
 
-      .btn-sm {
-        padding: 0.4rem 0.75rem;
-        font-size: 0.85rem;
-      }
-
-      /* ---------- Skills ---------- */
-      .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 1rem;
-      }
-
-      .skill-card {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 1.1rem 1.2rem;
-      }
-
+      /* ---------- Tags (tech stack / tools) ---------- */
       .chip-row {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.4rem;
-        margin-top: 0.6rem;
+        row-gap: 0.1rem;
+        margin-top: 0.4rem;
+        color: var(--muted);
       }
 
       .chip {
-        background: var(--accent-soft);
-        color: var(--accent-dark);
         font-size: 0.78rem;
-        font-weight: 600;
-        padding: 0.22rem 0.6rem;
-        border-radius: 999px;
         white-space: nowrap;
       }
 
-      .chip.chip-muted {
-        background: #f1f2f4;
-        color: var(--muted);
+      .chip:not(:last-child)::after {
+        content: "·";
+        margin: 0 0.5rem;
       }
 
       /* ---------- Projects ---------- */
       .project-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.25rem;
+        gap: 3rem 2.5rem;
       }
 
       .card {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        overflow: hidden;
-        box-shadow: var(--shadow);
         display: flex;
         flex-direction: column;
       }
 
       .card-media {
-        background: #0f1520;
         aspect-ratio: 16 / 10;
         overflow: hidden;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: var(--border);
+        margin-bottom: 1.1rem;
       }
 
       .card-media img {
@@ -339,14 +330,9 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 1px;
-        background: var(--border);
-      }
-      .card-media.split img {
-        height: 100%;
       }
 
       .card-body {
-        padding: 1.1rem 1.2rem 1.25rem;
         display: flex;
         flex-direction: column;
         flex: 1;
@@ -357,22 +343,21 @@
         margin-bottom: 0.75rem;
       }
 
-      .card-body ul {
-        margin: 0 0 0.75rem;
-        padding-left: 1.1rem;
-        font-size: 0.9rem;
-        color: var(--text);
-      }
-      .card-body li {
-        margin-bottom: 0.25rem;
-      }
-
       .card-links {
-        margin-top: auto;
         padding-top: 0.85rem;
         display: flex;
-        gap: 0.5rem;
+        gap: 0.4rem 1.25rem;
         flex-wrap: wrap;
+      }
+
+      .card-links a {
+        font-size: 0.85rem;
+      }
+
+      .card-links a::after {
+        content: "↗";
+        display: inline-block;
+        margin-left: 0.2em;
       }
 
       .no-source-note {
@@ -383,23 +368,15 @@
       }
 
       .more-projects {
-        text-align: center;
-        border: 1px dashed var(--border);
-        border-radius: var(--radius);
-        padding: 1.25rem;
+        margin-top: 3rem;
         color: var(--muted);
         font-size: 0.92rem;
-        margin-top: 1.25rem;
       }
 
       /* ---------- Experience ---------- */
       .exp-card {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 1.25rem 1.35rem;
-        margin-bottom: 1.1rem;
-        box-shadow: var(--shadow);
+        padding: 1.5rem 0;
+        border-top: 1px solid var(--border);
       }
 
       .exp-head {
@@ -408,7 +385,7 @@
         align-items: baseline;
         flex-wrap: wrap;
         gap: 0.4rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.15rem;
       }
 
       .exp-role {
@@ -421,10 +398,10 @@
         white-space: nowrap;
       }
       .exp-org {
-        color: var(--accent-dark);
+        color: var(--accent-text);
         font-weight: 600;
         font-size: 0.92rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.75rem;
       }
 
       .exp-card ul {
@@ -432,46 +409,101 @@
         padding-left: 1.2rem;
         font-size: 0.92rem;
       }
+      .exp-card ul:last-child {
+        margin-bottom: 0;
+      }
       .exp-card li {
         margin-bottom: 0.35rem;
       }
+      .exp-card li::marker {
+        color: var(--muted);
+      }
 
+      /* tools grouped by what they were used for */
+      .tools {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        gap: 0.15rem 1.25rem;
+        margin: 1rem 0 0;
+        font-size: 0.78rem;
+      }
+      .tools dt {
+        color: var(--muted);
+      }
+      .tools dd {
+        margin: 0;
+      }
+
+      .tabpanel > .exp-card + h2 {
+        margin-top: 1.5rem;
+      }
+
+      /* ---------- Education ---------- */
       .edu-item {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 1rem 1.2rem;
-        margin-bottom: 0.75rem;
+        display: grid;
+        grid-template-columns: 56px 1fr;
+        gap: 1rem;
+        align-items: start;
+        padding: 0.7rem 0;
+      }
+
+      .school-mark {
+        width: 48px;
+        padding-top: 0.3rem;
+      }
+
+      .school-mark img {
+        width: 100%;
+        height: auto;
+      }
+
+      .edu-content {
+        min-width: 0;
       }
 
       .edu-degree {
         font-weight: 700;
-        font-size: 0.98rem;
+        font-size: 0.9rem;
       }
       .edu-meta {
-        font-size: 0.85rem;
+        font-size: 0.76rem;
         color: var(--muted);
-        margin-top: 0.15rem;
+        margin-top: 0.08rem;
       }
 
-      /* ---------- Contact ---------- */
+      .edu-date {
+        display: inline-block;
+        margin-top: 0.3rem;
+        color: var(--accent-text);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .academic-heading {
+        margin-bottom: 0.25rem;
+        font-size: 1.2rem;
+      }
+
+      /* ---------- Contact (footer) ---------- */
+      .site-footer {
+        border-top: 1px solid var(--border);
+        padding: 3rem 0 3.5rem;
+      }
+
       .contact-list {
         list-style: none;
         margin: 0;
         padding: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0.9rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 0.85rem 2rem;
       }
 
       .contact-list li {
         display: flex;
         align-items: center;
         gap: 0.75rem;
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 0.9rem 1.1rem;
         font-size: 0.95rem;
       }
 
@@ -487,34 +519,62 @@
         width: 22px;
         height: 22px;
         flex-shrink: 0;
-        color: var(--accent-dark);
+        color: var(--muted);
       }
 
-      /* ---------- Footer ---------- */
-      footer {
-        border-top: 1px solid var(--border);
-        padding: 1.5rem 0;
-        font-size: 0.82rem;
-        color: var(--muted);
-        text-align: center;
+      .contact-source {
+        margin-top: 1.5rem;
       }
 
-      footer a {
+      .contact-source a {
         color: var(--muted);
+        text-decoration: none;
+        font-size: 0.85rem;
+      }
+
+      .contact-source a:hover {
+        text-decoration: underline;
       }
 
       @media (max-width: 560px) {
         .nav-inner {
           flex-direction: column;
           align-items: flex-start;
-          gap: 0.5rem;
+          gap: 0.35rem;
         }
         nav.tabs {
           width: 100%;
+          gap: 1.25rem;
+        }
+        main {
+          padding-top: 2rem;
         }
         .hero {
           flex-direction: column;
           align-items: flex-start;
+          gap: 1.5rem;
+        }
+        .hero img.headshot {
+          order: 0;
+          margin-left: 0;
+          width: 120px;
+          height: 174px;
+        }
+        .edu-item {
+          grid-template-columns: 44px 1fr;
+          gap: 0.8rem;
+        }
+        .school-mark {
+          width: 40px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .tabpanel {
+          animation: none;
         }
       }
     </style>
@@ -522,7 +582,7 @@
   <body>
     <header class="site-header">
       <div class="nav-inner">
-        <a class="brand" href="#about">Ali Basbeth</a>
+        <a class="brand" href="#about" data-goto="about">Ali Basbeth</a>
         <nav class="tabs" role="tablist" aria-label="Site sections">
           <button
             class="tablinks active"
@@ -534,14 +594,6 @@
           </button>
           <button
             class="tablinks"
-            data-tab="projects"
-            role="tab"
-            aria-selected="false"
-          >
-            Projects
-          </button>
-          <button
-            class="tablinks"
             data-tab="experience"
             role="tab"
             aria-selected="false"
@@ -550,11 +602,11 @@
           </button>
           <button
             class="tablinks"
-            data-tab="contact"
+            data-tab="projects"
             role="tab"
             aria-selected="false"
           >
-            Contact
+            Projects
           </button>
         </nav>
       </div>
@@ -564,28 +616,14 @@
       <!-- ABOUT -->
       <section id="about" class="tabpanel active" role="tabpanel">
         <div class="hero">
-          <img
-            class="headshot"
-            src="images/optimized/ali-headshot.jpg"
-            alt="Portrait of Ali Basbeth"
-          />
           <div class="hero-text">
             <h1>Ali Basbeth</h1>
             <p class="tagline">
-              Geospatial &amp; LiDAR QA/QC Specialist · Spatial Data Analyst ·
-              MSIS Candidate
-            </p>
-            <p class="muted">
-              Bridging spatial data science, 3D LiDAR processing, and enterprise
-              information systems to solve complex geospatial and infrastructure
-              challenges.
+              Geospatial Data Analyst · MSIS Candidate
             </p>
             <div class="cta-row">
               <button class="btn btn-primary" data-goto="projects">
                 View Projects
-              </button>
-              <button class="btn btn-ghost" data-goto="contact">
-                Contact Me
               </button>
               <a
                 class="btn btn-ghost"
@@ -595,54 +633,61 @@
                 >GitHub</a
               >
             </div>
-            <div class="hero-meta">
-              <span>📍 Bellevue, WA</span>
-              <a href="mailto:basbethali@gmail.com">✉️ basbethali@gmail.com</a>
-              <a
-                href="https://www.linkedin.com/in/ali-basbeth/"
-                target="_blank"
-                rel="noopener"
-                >🔗 LinkedIn</a
-              >
-            </div>
           </div>
+          <img
+            class="headshot"
+            src="images/optimized/ali-headshot.jpg"
+            alt="Portrait of Ali Basbeth"
+          />
         </div>
 
         <h2>About Me</h2>
         <p>
-          Geospatial, LiDAR, and data professional with more than three years of
-          experience analyzing, validating, and managing large-scale spatial
-          datasets for utility and infrastructure projects. Experienced in LiDAR
-          point-cloud QA/QC, utility vegetation management, 3D spatial analysis,
-          GIS database management, geospatial automation, and client deliverable
-          validation. Proven ability to design standardized QA/QC workflows and
-          automate repetitive processes using Python, SQL, Excel macros, and
-          MicroStation tools — reducing review time by roughly 50% and manual
-          processing time by up to 80%.
+          I earned my B.A. in Geography from the University of Washington with
+          a focus on GIS and data science. I then spent three years as a LiDAR
+          analyst at a surveying firm in Bellevue, working with large geospatial
+          datasets for utility infrastructure projects. Much of that work
+          centered on data quality, and I helped improve our QA/QC process by
+          standardizing reviews, automating repetitive tasks, and catching
+          errors earlier.
         </p>
         <p>
-          Currently pursuing a Master of Science in Information Systems at the
-          University of Washington Foster School of Business, building on a B.A.
-          in Geography with a Data Science concentration. Technical background
-          spans GIS, spatial databases, Python, SQL, PostgreSQL/PostGIS, ArcGIS
-          Pro, QGIS, MicroStation/TerraSolid, PLS-CADD, Tableau, Power BI,
-          Snowflake, and cloud-based data workflows. Interested in GIS
-          engineering, data engineering, business intelligence, and
-          technology-focused roles.
+          I am now pursuing an M.S. in Information Systems at the University of
+          Washington Foster School of Business, where I am building skills in
+          SQL, Python, cloud technologies, BI tools, and AI. I am interested in
+          data analytics, BI engineering, and data engineering roles,
+          particularly in the technology industry. I am focusing my search on
+          the Seattle area, the San Francisco Bay Area, Los Angeles and Orange
+          County, and New York City.
         </p>
 
-        <h2 style="margin-top: 2rem">Technical Skills</h2>
-        <div class="skills-grid">
-          <div class="skill-card">
-            <h3>Tech Stack</h3>
-            <div class="chip-row">
-              <span class="chip">QGIS</span>
-              <span class="chip">MicroStation (TerraSolid)</span>
-              <span class="chip">Python</span>
-              <span class="chip">Google Cloud Provider</span>
-              <span class="chip">MS Excel</span>
-              <span class="chip">Monday.com</span>
-            </div>
+        <h2 class="academic-heading">Academic Background</h2>
+        <div class="edu-item">
+          <div class="school-mark">
+            <img
+              src="images/Washington_Huskies_logo.svg.webp"
+              alt="University of Washington logo"
+            />
+          </div>
+          <div class="edu-content">
+            <div class="edu-degree">M.S. in Information Systems (MSIS)</div>
+            <div class="edu-meta">University of Washington — Foster School of Business</div>
+            <div class="edu-meta">Seattle, WA</div>
+            <div class="edu-date">Expected June 2027</div>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="school-mark">
+            <img
+              src="images/Washington_Huskies_logo.svg.webp"
+              alt="University of Washington logo"
+            />
+          </div>
+          <div class="edu-content">
+            <div class="edu-degree">B.A. in Geography, Data Science Track</div>
+            <div class="edu-meta">University of Washington</div>
+            <div class="edu-meta">Seattle, WA</div>
+            <div class="edu-date">Graduated June 2022</div>
           </div>
         </div>
       </section>
@@ -651,8 +696,8 @@
       <section id="projects" class="tabpanel" role="tabpanel">
         <h2>Featured Projects</h2>
         <p class="muted">
-          Personal and coursework projects with public source code — each links
-          to its repository and, where hosted, a live demo.
+          Selected coursework from my geography degree at the University of
+          Washington, covering web mapping, spatial analysis, and cartography.
         </p>
 
         <div class="project-grid">
@@ -673,10 +718,10 @@
             <div class="card-body">
               <h3>COVID-19 US Web Mapping Application</h3>
               <p>
-                Interactive proportional-symbol and choropleth web maps of
-                COVID-19 case counts and rates across US counties, built with
-                Mapbox GL JS using NYT COVID-19 data and US Census
-                boundary/population data.
+                Two interactive web maps of 2020 COVID-19 cases by US county: a
+                proportional-symbol map of case counts and a choropleth of rates
+                per 100,000 residents, built with Mapbox GL JS from New York
+                Times and US Census data.
               </p>
               <div class="chip-row">
                 <span class="chip">Mapbox GL JS</span>
@@ -687,21 +732,18 @@
               </div>
               <div class="card-links">
                 <a
-                  class="btn btn-ghost btn-sm"
                   href="https://htmlpreview.github.io/?https://github.com/LostGovernment/us-covid-2020-geog458/blob/main/map1.html"
                   target="_blank"
                   rel="noopener"
                   >Live: Case Counts</a
                 >
                 <a
-                  class="btn btn-ghost btn-sm"
                   href="https://htmlpreview.github.io/?https://github.com/LostGovernment/us-covid-2020-geog458/blob/main/map2.html"
                   target="_blank"
                   rel="noopener"
                   >Live: Case Rates</a
                 >
                 <a
-                  class="btn btn-primary btn-sm"
                   href="https://github.com/LostGovernment/us-covid-2020-geog458"
                   target="_blank"
                   rel="noopener"
@@ -711,21 +753,101 @@
             </div>
           </div>
 
-          <!-- Project 2: Malaria map -->
+          <!-- Project 2: Geo-tagged tweet analysis -->
+          <div class="card">
+            <div class="card-media">
+              <img
+                src="images/optimized/geotweets-pm.jpg"
+                alt="Map of afternoon geo-tagged tweets across the contiguous US"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-body">
+              <h3>Geo-Tagged Tweet Analysis</h3>
+              <p>
+                Tweets collected through the Twitter API in two windows, early
+                morning and afternoon, then compared: maps show where people
+                tweeted across the contiguous US, and word clouds show what they
+                tweeted about.
+              </p>
+              <div class="chip-row">
+                <span class="chip">Python</span>
+                <span class="chip">Twitter API</span>
+                <span class="chip">Pandas</span>
+                <span class="chip">Jupyter Notebook</span>
+                <span class="chip">Text Analysis</span>
+              </div>
+              <div class="card-links">
+                <a
+                  href="https://github.com/LostGovernment/lab2-expert-octo-palm-tree/blob/main/(1)02_geosearch.ipynb"
+                  target="_blank"
+                  rel="noopener"
+                  >View Notebook</a
+                >
+                <a
+                  href="https://github.com/LostGovernment/lab2-expert-octo-palm-tree"
+                  target="_blank"
+                  rel="noopener"
+                  >Source Code</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Map Tile Design Lab -->
+          <div class="card">
+            <div class="card-media">
+              <img
+                src="images/optimized/basemap-wetlands.jpg"
+                alt="Wetlands and parks basemap of Bellevue and Mercer Island"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-body">
+              <h3>Custom Basemap &amp; Map Tile Design</h3>
+              <p>
+                Four basemaps designed in Mapbox Studio and published as raster
+                map tiles, including a Washington broadband speed-test map and a
+                wetlands and parks map around Bellevue, all viewable in one
+                Mapbox GL JS web map.
+              </p>
+              <div class="chip-row">
+                <span class="chip">Mapbox Studio</span>
+                <span class="chip">Mapbox GL JS</span>
+                <span class="chip">QGIS</span>
+              </div>
+              <div class="card-links">
+                <a
+                  href="https://lostgovernment.github.io/Map-Tiles-Design-Lab4-geog458/"
+                  target="_blank"
+                  rel="noopener"
+                  >Live Demo</a
+                >
+                <a
+                  href="https://github.com/LostGovernment/Map-Tiles-Design-Lab4-geog458"
+                  target="_blank"
+                  rel="noopener"
+                  >Source Code</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: Malaria map -->
           <div class="card">
             <div class="card-media">
               <img
                 src="images/optimized/malaria-map.jpg"
-                alt="QGIS malaria risk map"
+                alt="QGIS malaria risk map of Kenya"
                 loading="lazy"
               />
             </div>
             <div class="card-body">
               <h3>Malaria Risk Mapping (QGIS)</h3>
               <p>
-                Cartographic risk-mapping exercise built in QGIS, symbolizing
-                and classifying malaria-related spatial data as a desktop GIS
-                cartography project.
+                Risk map of where malaria-carrying mosquitoes could survive in
+                Kenya, classified by average March temperatures and excluding
+                land above 1,500 meters, where the mosquito cannot live.
               </p>
               <div class="chip-row">
                 <span class="chip">QGIS</span>
@@ -734,7 +856,6 @@
               </div>
               <div class="card-links">
                 <a
-                  class="btn btn-ghost btn-sm"
                   href="images/Malaria%20Map%203.png"
                   target="_blank"
                   rel="noopener"
@@ -747,114 +868,27 @@
               </p>
             </div>
           </div>
-
-          <!-- Project 3: Map Tile Design Lab -->
-          <div class="card">
-            <div class="card-media">
-              <img
-                src="https://opengraph.githubassets.com/1/LostGovernment/Map-Tiles-Design-Lab4-geog458"
-                alt="Map Tiles Design Lab repository preview"
-                loading="lazy"
-              />
-            </div>
-            <div class="card-body">
-              <h3>Custom Basemap &amp; Map Tile Design</h3>
-              <p>
-                Four custom Mapbox Studio basemaps — a Puget Sound personality
-                basemap, a WA broadband speed-test map, a combined thematic
-                layer, and a Bellevue wetlands/parks awareness map — rendered
-                with Mapbox GL JS.
-              </p>
-              <div class="chip-row">
-                <span class="chip">Mapbox Studio</span>
-                <span class="chip">Mapbox GL JS</span>
-                <span class="chip">QGIS</span>
-              </div>
-              <div class="card-links">
-                <a
-                  class="btn btn-ghost btn-sm"
-                  href="https://lostgovernment.github.io/Map-Tiles-Design-Lab4-geog458/"
-                  target="_blank"
-                  rel="noopener"
-                  >Live Demo</a
-                >
-                <a
-                  class="btn btn-primary btn-sm"
-                  href="https://github.com/LostGovernment/Map-Tiles-Design-Lab4-geog458"
-                  target="_blank"
-                  rel="noopener"
-                  >Source Code</a
-                >
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 4: Geo-tagged tweet analysis -->
-          <div class="card">
-            <div class="card-media">
-              <img
-                src="https://opengraph.githubassets.com/1/LostGovernment/lab2-expert-octo-palm-tree"
-                alt="Geo-tagged tweet analysis repository preview"
-                loading="lazy"
-              />
-            </div>
-            <div class="card-body">
-              <h3>Geo-Tagged Tweet Analysis</h3>
-              <p>
-                Python/Jupyter analysis comparing geo-tagged tweet activity
-                across the contiguous US between morning and afternoon hours,
-                with geographic distribution maps and word-cloud text analysis.
-              </p>
-              <div class="chip-row">
-                <span class="chip">Python</span>
-                <span class="chip">Jupyter Notebook</span>
-                <span class="chip">Pandas</span>
-                <span class="chip">Text Analysis</span>
-              </div>
-              <div class="card-links">
-                <a
-                  class="btn btn-ghost btn-sm"
-                  href="https://github.com/LostGovernment/lab2-expert-octo-palm-tree/blob/main/(1)02_geosearch.ipynb"
-                  target="_blank"
-                  rel="noopener"
-                  >View Notebook</a
-                >
-                <a
-                  class="btn btn-primary btn-sm"
-                  href="https://github.com/LostGovernment/lab2-expert-octo-palm-tree"
-                  target="_blank"
-                  rel="noopener"
-                  >Source Code</a
-                >
-              </div>
-            </div>
-          </div>
         </div>
 
         <p class="more-projects">
-          More projects are on the way — check
+          More projects are on the way. In the meantime, the full list is at
           <a
             href="https://github.com/LostGovernment?tab=repositories"
             target="_blank"
             rel="noopener"
             >github.com/LostGovernment</a
-          >
-          for the full list in the meantime.
+          >.
         </p>
       </section>
 
       <!-- EXPERIENCE -->
       <section id="experience" class="tabpanel" role="tabpanel">
         <h2>Professional Experience</h2>
-        <p class="muted">
-          Client and employer work below is proprietary, so these are case-study
-          summaries rather than linked repos.
-        </p>
 
         <div class="exp-card">
           <div class="exp-head">
-            <span class="exp-role">Senior LiDAR Analyst / LiDAR Analyst</span>
-            <span class="exp-dates">Sept 2022 – Jan 2026 </span>
+            <span class="exp-role">Senior LiDAR Analyst</span>
+            <span class="exp-dates">Sep 2022 – Jan 2026</span>
           </div>
           <div class="exp-org">GIS Surveyors Inc.</div>
           <ul>
@@ -865,78 +899,72 @@
               250GB+ of weekly deliverables.
             </li>
             <li>
-              <strong>Documentation and reporting:</strong> collaborated with
-              team members to produce concise process documentation; managed QC
-              reporting by summarizing key failures for project managers and
-              tracking corrective actions through completion before delivery.
+              <strong>Documentation and reporting:</strong> wrote process
+              documentation with the team and managed QC reporting, summarizing
+              key failures for project managers and tracking corrective actions
+              through to delivery.
             </li>
             <li>
               <strong>Workflow automation:</strong> developed Python scripts and
-              MicroStation macros to automate repetitive tasks, reduce manual
-              effort, improve team efficiency, and support stable delivery
-              across long-term client projects.
+              MicroStation macros that automated repetitive tasks and reduced
+              manual effort on long-term client projects.
             </li>
             <li>
-              <strong>Client deliverables and tracking:</strong> prepared
-              client-ready deliverables and detailed QC reports, coordinated
-              data deliveries through Google Cloud, and maintained project
-              visibility through Monday boards.
+              <strong>Client deliverables:</strong> prepared client-ready
+              deliverables and QC reports, coordinated data deliveries through
+              Google Cloud, and tracked project status on Monday.com.
             </li>
             <li>
               <strong>Training and mentorship:</strong> trained and mentored new
-              hires in QA/QC workflows, strengthening onboarding and improving
-              the consistency of technician QC results through ongoing guidance
-              and validation.
+              hires in QA/QC workflows, improving the consistency of technician
+              QC results.
             </li>
           </ul>
-          <div class="chip-row">
-            <span class="chip chip-muted">QGIS</span>
-            <span class="chip chip-muted">MicroStation (TerraSolid)</span>
-            <span class="chip chip-muted">Python</span>
-            <span class="chip chip-muted">Google Cloud Provider</span>
-            <span class="chip chip-muted">MS Excel</span>
-            <span class="chip chip-muted">Monday.com</span>
-          </div>
+          <dl class="tools">
+            <dt>LiDAR &amp; GIS</dt>
+            <dd>MicroStation (TerraSolid), QGIS</dd>
+            <dt>Automation</dt>
+            <dd>Python</dd>
+            <dt>Reporting &amp; delivery</dt>
+            <dd>Excel, Google Cloud, Monday.com</dd>
+          </dl>
         </div>
 
         <div class="exp-card">
           <div class="exp-head">
-            <span class="exp-role"
-              >Student Parking Assistant / Gameday Event Assistant</span
-            >
-            <span class="exp-dates">Sept 2021 – June 2022</span>
+            <span class="exp-role">Student Parking Assistant</span>
+            <span class="exp-dates">Sep 2021 – Jun 2022</span>
           </div>
           <div class="exp-org">UW Transportation Services</div>
           <ul>
             <li>
               Managed parking operations and facility access control for 30+
-              events with up to 60,000+ attendees.
+              events, including crowds of 60,000+.
             </li>
           </ul>
         </div>
 
-        <h2 style="margin-top: 2rem">Education</h2>
-        <div class="edu-item">
-          <div class="edu-degree">M.S. in Information Systems (MSIS)</div>
-          <div class="edu-meta">
-            University of Washington — Foster School of Business
+        <h2>Leadership</h2>
+        <div class="exp-card">
+          <div class="exp-head">
+            <span class="exp-role">Student Ambassador, MSIS</span>
           </div>
-          <div class="edu-meta">Seattle, WA</div>
-          <div class="edu-meta">Jun 2026 – Jun 2027</div>
-        </div>
-        <div class="edu-item">
-          <div class="edu-degree">
-            Bachelor's in Geography, Data Science Track
-          </div>
-          <div class="edu-meta">University of Washington</div>
-          <div class="edu-meta">Seattle, WA</div>
-          <div class="edu-meta">Graduated June 2022</div>
-          <div class="edu-meta">GPA: 3.64</div>
+          <div class="exp-org">University of Washington — Foster School of Business</div>
+          <ul>
+            <li>
+              Represent the MSIS program to prospective students, sharing
+              firsthand perspective on the curriculum and student community and
+              answering their questions as they consider applying.
+            </li>
+          </ul>
         </div>
       </section>
 
-      <!-- CONTACT -->
-      <section id="contact" class="tabpanel" role="tabpanel">
+    </main>
+
+    <!-- CONTACT (shown under every tab) -->
+    <footer id="contact" class="site-footer">
+      <div class="wrap">
         <h2>Get In Touch</h2>
         <ul class="contact-list">
           <li>
@@ -946,6 +974,7 @@
               fill="none"
               stroke="currentColor"
               stroke-width="2"
+              aria-hidden="true"
             >
               <path d="M4 4h16v16H4z" />
               <path d="m22 6-10 7L2 6" />
@@ -956,18 +985,9 @@
             <svg
               class="contact-icon"
               viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
+              fill="currentColor"
+              aria-hidden="true"
             >
-              <path
-                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
-              />
-            </svg>
-            +1 206-270-2314
-          </li>
-          <li>
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
               <path
                 d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49 0-.24-.01-1.04-.01-1.88-2.78.62-3.37-1.21-3.37-1.21-.46-1.19-1.11-1.51-1.11-1.51-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.34 1.12 2.91.86.09-.66.35-1.12.64-1.38-2.22-.26-4.56-1.14-4.56-5.05 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.78-4.57 5.04.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"
               />
@@ -980,7 +1000,12 @@
             >
           </li>
           <li>
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+            <svg
+              class="contact-icon"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
               <path
                 d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"
               />
@@ -999,6 +1024,7 @@
               fill="none"
               stroke="currentColor"
               stroke-width="2"
+              aria-hidden="true"
             >
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
               <circle cx="12" cy="10" r="3" />
@@ -1006,19 +1032,9 @@
             Bellevue, WA
           </li>
         </ul>
-      </section>
-    </main>
-
-    <footer>
-      <div class="wrap">
-        Built with plain HTML, CSS &amp; JavaScript — no framework, hosted on
-        GitHub Pages.
-        <a
-          href="https://github.com/LostGovernment/portofolio1"
-          target="_blank"
-          rel="noopener"
-          >View this site's source</a
-        >
+        <div class="contact-source">
+          <a href="https://github.com/LostGovernment/portofolio1" target="_blank" rel="noopener">View source on GitHub</a>
+        </div>
       </div>
     </footer>
 
@@ -1040,14 +1056,16 @@
       tabs.forEach((t) =>
         t.addEventListener("click", () => activateTab(t.dataset.tab)),
       );
-      document
-        .querySelectorAll("[data-goto]")
-        .forEach((el) =>
-          el.addEventListener("click", () => activateTab(el.dataset.goto)),
-        );
+      document.querySelectorAll("[data-goto]").forEach((el) =>
+        el.addEventListener("click", (e) => {
+          e.preventDefault();
+          activateTab(el.dataset.goto);
+        }),
+      );
 
       const initial = window.location.hash.replace("#", "");
-      if (initial && document.getElementById(initial)) {
+      const target = initial && document.getElementById(initial);
+      if (target && target.classList.contains("tabpanel")) {
         activateTab(initial);
       }
     </script>
